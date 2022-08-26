@@ -1,0 +1,7 @@
+.link a {
+    text-align: center;
+    min-width: 70px;
+}
+.link a:hover {
+    color: rgb(187, 187, 187);
+}
