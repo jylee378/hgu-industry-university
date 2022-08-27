@@ -6,7 +6,7 @@ import Layout from '../ components/Layout'
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#FFFFFF'
+      main: '#00296b'
     },
     secondary: {
       main: '#000000'
@@ -25,7 +25,8 @@ const theme = createTheme({
     allVariants: {
       color: '#00296b',
       minWidth: '60px',
-      textAlign: 'center'
+      textAlign: 'center',
+      fontWeight: '600'
     }
   },
 })

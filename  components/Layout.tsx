@@ -24,7 +24,7 @@ const Layout: FC<React.PropsWithChildren<unknown>> = ({ children }) => {
         <Box sx={{ flexGrow: 1 }}>
             {/* Header */}
             <AppBar position='fixed'>
-                <Toolbar sx={{ display: 'flex' }}>
+                <Toolbar sx={{ display: 'flex', background: "white" }}>
                     {!isMobile ?
                         // 브라우저 크기 태블릿 이상
                         <>
