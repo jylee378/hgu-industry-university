@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react'
 import { Box, Stack, Divider, Typography, Button, Popper, Grow, Paper, ClickAwayListener, MenuList, MenuItem } from '@mui/material'
-import Link from 'next/link'
+import { useRouter } from 'next/router'
 import customStyled from './Layout.module.css'
 
 interface rightMenuProps {
@@ -8,6 +8,8 @@ interface rightMenuProps {
 }
 
 const RightMenu = (props: rightMenuProps) => {
+
+    const router = useRouter()
 
     const [openParticipantsMenu, setOpenParticipantsMenu] = useState(false);
     const [openAchievementsMenu, setOpenAchievementsMenu] = useState(false);
@@ -24,14 +26,16 @@ const RightMenu = (props: rightMenuProps) => {
     const handleComminityMenuToggle = () => {
         setOpenComminityMenu((prevOpen) => !prevOpen);
     };
-    const handleParticipantsMenuClose = (event: Event | React.SyntheticEvent) => {
+    const handleParticipantsMenuClose = (event: Event | React.SyntheticEvent, moveTo?: string) => {
         if (
             participantsMenuRef.current &&
             participantsMenuRef.current.contains(event.target as HTMLElement)
         ) {
             return;
         }
-
+        if (moveTo) {
+            router.push(moveTo)
+        }
         setOpenParticipantsMenu(false);
     };
     const handleAchievementsMenuRefMenuClose = (event: Event | React.SyntheticEvent) => {
@@ -116,8 +120,8 @@ const RightMenu = (props: rightMenuProps) => {
                                             aria-labelledby="composition-button"
                                             onKeyDown={handleListKeyDown}
                                         >
-                                            <MenuItem onClick={handleParticipantsMenuClose}>참여교수</MenuItem>
-                                            <MenuItem onClick={handleParticipantsMenuClose}>참여연구원</MenuItem>
+                                            <MenuItem onClick={(event) => handleParticipantsMenuClose(event, '/participants/professor')}>참여교수</MenuItem>
+                                            <MenuItem onClick={(event) => handleParticipantsMenuClose(event, '/participants/researcher')}>참여연구원</MenuItem>
                                         </MenuList>
                                     </ClickAwayListener>
                                 </Paper>
