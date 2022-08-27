@@ -8,7 +8,7 @@ interface PageTitleBarProps {
 
 const PageTitleBar: FC<React.PropsWithChildren<PageTitleBarProps>> = (props) => {
     return (
-        <Box sx={{ flexGrow: 1 }}>
+        <Box sx={{ flexGrow: 1, marginBottom: '30px' }}>
             <AppBar position="static">
                 <Toolbar>
                     <SvgIcon
