@@ -11,11 +11,11 @@ import LeftMenu from './LeftMenu'
 import RightMenu from './RightMenu'
 
 const Layout: FC<React.PropsWithChildren<unknown>> = ({ children }) => {
-    
+
     // 반응형 웹을 위한 변수
     const theme = useTheme()
     const isTablet = useMediaQuery(theme.breakpoints.down("lg"))
-    const isMobile = useMediaQuery(theme.breakpoints.down("sm"))
+    const isMobile = useMediaQuery(theme.breakpoints.down("md"))
 
     // 사이드바 팝업
     const [openDrawer, setOpenDrawer] = useState<boolean>(false)
@@ -25,16 +25,16 @@ const Layout: FC<React.PropsWithChildren<unknown>> = ({ children }) => {
             {/* Header */}
             <AppBar position='fixed'>
                 <Toolbar sx={{ display: 'flex' }}>
-                    {!isTablet ?
+                    {!isMobile ?
                         // 브라우저 크기 태블릿 이상
                         <>
                             {/* 홈, 로고 */}
                             <LeftMenu
-                                isTablet={isTablet}
+                                isResponsive={isMobile}
                             />
                             {/* 메뉴 */}
                             <RightMenu
-                                isTablet={isTablet}
+                                isResponsive={isMobile}
                             />
                         </>
                         // 브라우저 크기 태블릿 이하
@@ -55,27 +55,31 @@ const Layout: FC<React.PropsWithChildren<unknown>> = ({ children }) => {
                 onClose={() => setOpenDrawer(false)}
             >
                 {/* Drawer body - mobile 크기일때만 drawer close 버튼 표출 */}
-                {isMobile &&
-                    <IconButton
-                        color="secondary"
-                        aria-label="closeDrawer"
-                        component="span"
-                        onClick={() => setOpenDrawer(false)}
-                        sx={{
-                            display: 'flex',
-                            justifyContent: 'flex-end',
-                            paddingRight: '15px'
-                        }}
-                    >
-                        <ArrowBackIcon />
-                    </IconButton>
-                }
-                <LeftMenu
-                    isTablet={isTablet}
-                />
+                <Grid container alignItems='center'>
+                    <Grid item md={8}>
+                        <LeftMenu
+                            isResponsive={isMobile}
+                        />
+                    </Grid>
+                    <Grid item md={4}>
+                        {isMobile &&
+                            <IconButton
+                                color="secondary"
+                                aria-label="closeDrawer"
+                                component="span"
+                                onClick={() => setOpenDrawer(false)}
+                                sx={{
+                                    paddingRight: '15px'
+                                }}
+                            >
+                                <ArrowBackIcon />
+                            </IconButton>
+                        }
+                    </Grid>
+                </Grid>
                 <Divider />
                 <RightMenu
-                    isTablet={isTablet}
+                    isResponsive={isMobile}
                 />
             </Drawer>
             {/* Body */}
@@ -85,10 +89,10 @@ const Layout: FC<React.PropsWithChildren<unknown>> = ({ children }) => {
             </Box>
             {/* Footer */}
             <footer className={styles.footer}>
-                <Typography textAlign="center">
-                경상북도 포항시 북구 흥해읍 한동로 558, 한동대학교 산학협력단 3층
-                <br /><br />
-                경북지역 풍력에너지 클러스터 인재양성사업단 / 054. 260. 1937
+                <Typography>
+                    경상북도 포항시 북구 흥해읍 한동로 558, 한동대학교 산학협력단 3층
+                    <br /><br />
+                    경북지역 풍력에너지 클러스터 인재양성사업단 / 054. 260. 1937
                 </Typography>
             </footer>
         </Box>

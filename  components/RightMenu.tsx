@@ -3,18 +3,18 @@ import Link from 'next/link'
 import customStyled from './Layout.module.css'
 
 interface rightMenuProps {
-    isTablet: boolean
+    isResponsive: boolean
 }
 
 const RightMenu = (props: rightMenuProps) => {
 
     return (
-        <Box sx={{ marginTop: !props.isTablet ? "0px" : "20px" }}>
+        <Box sx={{ marginTop: !props.isResponsive ? "0px" : "20px" }}>
             <Stack
-                direction={!props.isTablet ? "row" : "column"}
+                direction={!props.isResponsive ? "row" : "column"}
                 spacing={3}
                 className={customStyled.link}
-                divider={<Divider orientation={!props.isTablet ? "vertical" : "horizontal"} flexItem
+                divider={<Divider orientation={!props.isResponsive ? "vertical" : "horizontal"} flexItem
                 />}
             >
                 <Link href={`/a`}><Typography>참여인력</Typography></Link>
