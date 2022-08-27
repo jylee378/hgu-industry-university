@@ -51,8 +51,8 @@ const ProfessorPage: NextPage = () => {
                 <Grid item md={6} />
                 {
                     data.professors.map((item, index) => (
-                        <Grid item md={6}>
-                            <Card key={index}>
+                        <Grid item md={6} key={index}>
+                            <Card>
                                 <Grid container display={'flex'}>
                                     {/* 교수 이미지 */}
                                     <Grid item md={5}>
