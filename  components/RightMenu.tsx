@@ -131,7 +131,7 @@ const RightMenu = (props: rightMenuProps) => {
                 </div>
 
                 {/* -------------------------------교과과정 메뉴------------------------------- */}
-                <Button><Typography>교과과정</Typography></Button>
+                <Button onClick={() => router.push('/curriculum')}><Typography>교과과정</Typography></Button>
 
                 {/* -------------------------------산학협력 메뉴------------------------------- */}
                 <Button><Typography>산학협력</Typography></Button>
