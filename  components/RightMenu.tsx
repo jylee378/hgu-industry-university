@@ -38,14 +38,16 @@ const RightMenu = (props: rightMenuProps) => {
         }
         setOpenParticipantsMenu(false);
     };
-    const handleAchievementsMenuRefMenuClose = (event: Event | React.SyntheticEvent) => {
+    const handleAchievementsMenuRefMenuClose = (event: Event | React.SyntheticEvent, moveTo?: string) => {
         if (
             participantsMenuRef.current &&
             participantsMenuRef.current.contains(event.target as HTMLElement)
         ) {
             return;
         }
-
+        if (moveTo) {
+            router.push(moveTo)
+        }
         setOpenAchievementsMenu(false);
     };
     const handleCommunityMenuRefMenuClose = (event: Event | React.SyntheticEvent) => {
@@ -176,10 +178,10 @@ const RightMenu = (props: rightMenuProps) => {
                                             aria-labelledby="composition-button"
                                             onKeyDown={handleListKeyDown}
                                         >
-                                            <MenuItem onClick={handleAchievementsMenuRefMenuClose}>학회활동</MenuItem>
-                                            <MenuItem onClick={handleAchievementsMenuRefMenuClose}>논문</MenuItem>
-                                            <MenuItem onClick={handleAchievementsMenuRefMenuClose}>특허</MenuItem>
-                                            <MenuItem onClick={handleAchievementsMenuRefMenuClose}>비교과프로그램</MenuItem>
+                                            <MenuItem onClick={(event) => handleAchievementsMenuRefMenuClose(event, '/achievements/academic')}>학회활동</MenuItem>
+                                            <MenuItem onClick={(event) => handleAchievementsMenuRefMenuClose(event, '/achievements/paper')}>논문</MenuItem>
+                                            <MenuItem onClick={(event) => handleAchievementsMenuRefMenuClose(event, '/achievements/patent')}>특허</MenuItem>
+                                            <MenuItem onClick={(event) => handleAchievementsMenuRefMenuClose(event, '/achievements/non-discipline')}>비교과프로그램</MenuItem>
                                         </MenuList>
                                     </ClickAwayListener>
                                 </Paper>
