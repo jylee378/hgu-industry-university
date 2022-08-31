@@ -14,7 +14,6 @@ const Layout: FC<React.PropsWithChildren<unknown>> = ({ children }) => {
 
     // 반응형 웹을 위한 변수
     const theme = useTheme()
-    const isTablet = useMediaQuery(theme.breakpoints.down("lg"))
     const isMobile = useMediaQuery(theme.breakpoints.down("md"))
 
     // 사이드바 팝업
