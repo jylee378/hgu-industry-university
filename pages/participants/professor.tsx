@@ -1,7 +1,7 @@
 import type { NextPage } from 'next'
 import { Box, Card, Grid, CardContent, CardMedia, Typography } from '@mui/material'
 import ContactPageOutlinedIcon from '@mui/icons-material/ContactPageOutlined';
-import PageTitleBar from '../../ components/common/PageTitleBar';
+import PageTitleBar from '../../components/common/PageTitleBar';
 import { data } from '../../data/participants/professor'
 
 const ProfessorPage: NextPage = () => {

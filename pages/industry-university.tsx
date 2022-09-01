@@ -4,7 +4,7 @@ import {
     Box, Table, TableBody, TableRow, TableCell, Grid, Typography, useMediaQuery
 } from '@mui/material'
 import HubIcon from '@mui/icons-material/Hub';
-import PageTitleBar from '../ components/common/PageTitleBar';
+import PageTitleBar from '../components/common/PageTitleBar';
 import { data } from '../data/industry_university'
 import Image from 'next/image'
 import { useTheme } from '@mui/material/styles'

@@ -1,7 +1,7 @@
 import type { NextPage } from 'next'
 import { Box, Table, TableHead, TableRow, TableCell, TableBody, Grid, Typography } from '@mui/material'
 import AutoStoriesOutlinedIcon from '@mui/icons-material/AutoStoriesOutlined';
-import PageTitleBar from '../ components/common/PageTitleBar';
+import PageTitleBar from '../components/common/PageTitleBar';
 import { data } from '../data/curriculum'
 import Image from 'next/image'
 
