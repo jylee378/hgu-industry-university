@@ -2,7 +2,7 @@ import React from 'react'
 import type { NextPage } from 'next'
 import { Box, Typography } from '@mui/material'
 import { data } from '../../data/achievements/academic'
-import PageTitleBar from '../../ components/common/PageTitleBar'
+import PageTitleBar from '../../components/common/PageTitleBar'
 import LightbulbOutlinedIcon from '@mui/icons-material/LightbulbOutlined';
 import styles from './academic.module.css'
 
