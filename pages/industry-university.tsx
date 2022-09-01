@@ -32,7 +32,7 @@ const IndustryUniversityPage: NextPage = () => {
                                     <Typography>{item.left_of_logo}</Typography>
                                 </Box>
                                 {!isMobile && <Box sx={{ height: "2px", borderTop: "2px solid #dcdcdc" }}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Box>}
-                                <Box sx={{ border: '2px solid #dcdcdc' }}>
+                                <Box sx={{ border: '4px solid #dcdcdc' }}>
                                     <Image width={200} height={80} src={item.logo} />
                                 </Box>
                             </Grid>
