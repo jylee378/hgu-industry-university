@@ -67,7 +67,7 @@ const CurriculumPage: NextPage = () => {
             }}>
                 {
                     data.map((item, index) => (
-                        <Grid key={index} item md={4} display="flex" justifyContent="center" direction="column">
+                        <Grid container key={index} item md={4} display="flex" justifyContent="center" direction="column">
                             <Image src={item.image} width="250px" height="200px" alt="curriculum_image"/>
                             <Box sx={{padding: '0px 20px'}}><Typography sx={{marginTop: "10px", bgcolor: "secondary.main"}}>{item.title}</Typography></Box>
                         </Grid>

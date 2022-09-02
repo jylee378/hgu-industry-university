@@ -10,6 +10,7 @@ const ResearcherPage: NextPage = () => {
             <PageTitleBar title="참여 연구원" icon={ContactPageOutlinedIcon} />
             <Table aria-label="researcher table" sx={{
                 border: '1px solid #00296b',
+                borderBottom: '1px solid #00296b',
             }}>
                 <TableHead>
                     <TableRow>
