@@ -13,7 +13,6 @@ const Home: NextPage = () => {
       <Image src={`/landing.jpg`} width="1500px" height="650px" layout="responsive" alt="landingImage" />
     </>
   )
-
 }
 
 export default Home
