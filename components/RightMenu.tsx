@@ -50,14 +50,16 @@ const RightMenu = (props: rightMenuProps) => {
         }
         setOpenAchievementsMenu(false);
     };
-    const handleCommunityMenuRefMenuClose = (event: Event | React.SyntheticEvent) => {
+    const handleCommunityMenuRefMenuClose = (event: Event | React.SyntheticEvent, moveTo?: string) => {
         if (
             participantsMenuRef.current &&
             participantsMenuRef.current.contains(event.target as HTMLElement)
         ) {
             return;
         }
-
+        if (moveTo) {
+            router.push(moveTo)
+        }
         setOpenComminityMenu(false);
     };
     function handleListKeyDown(event: React.KeyboardEvent) {
@@ -230,8 +232,8 @@ const RightMenu = (props: rightMenuProps) => {
                                             aria-labelledby="composition-button"
                                             onKeyDown={handleListKeyDown}
                                         >
-                                            <MenuItem onClick={handleCommunityMenuRefMenuClose}>자료실</MenuItem>
-                                            <MenuItem onClick={handleCommunityMenuRefMenuClose}>공지사항</MenuItem>
+                                            <MenuItem onClick={(event) => handleCommunityMenuRefMenuClose(event, '/community/reference')}>자료실</MenuItem>
+                                            <MenuItem onClick={(event) => handleCommunityMenuRefMenuClose(event, '/community/notice')}>공지사항</MenuItem>
                                         </MenuList>
                                     </ClickAwayListener>
                                 </Paper>

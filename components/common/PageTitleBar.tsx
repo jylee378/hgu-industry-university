@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import { Box, AppBar, Toolbar, Typography, SvgIcon, Divider } from '@mui/material'
+import { Box, AppBar, Toolbar, Typography, SvgIcon } from '@mui/material'
 
 interface PageTitleBarProps {
     title: string,
@@ -13,7 +13,7 @@ const PageTitleBar: FC<React.PropsWithChildren<PageTitleBarProps>> = (props) => 
                 <Toolbar>
                     <SvgIcon
                         component={props.icon}
-                        sx={{ mr: 2, width: '40px' }}
+                        sx={{ mr: 2, width: '40px', fontSize: '30px' }}
                     >
                     </SvgIcon>
                     <Box sx={{
