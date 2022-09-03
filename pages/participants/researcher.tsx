@@ -4,13 +4,20 @@ import ContactPageOutlinedIcon from '@mui/icons-material/ContactPageOutlined';
 import PageTitleBar from '../../components/common/PageTitleBar';
 import { data } from '../../data/participants/researcher'
 
+const styles = {
+    tableRow: {
+        "&:last-child td": {
+            borderBottom: '1px solid #00296b',
+        },
+    },
+}
+
 const ResearcherPage: NextPage = () => {
     return (
         <Box style={{ padding: '50px 10% 50px 10%' }}>
             <PageTitleBar title="참여 연구원" icon={ContactPageOutlinedIcon} />
             <Table aria-label="researcher table" sx={{
                 border: '1px solid #00296b',
-                borderBottom: '1px solid #00296b',
             }}>
                 <TableHead>
                     <TableRow>
@@ -117,7 +124,11 @@ const ResearcherPage: NextPage = () => {
                 <TableBody>
                     {
                         data.map((item, index) => (
-                            <TableRow key={index}>
+                            <TableRow key={index} sx={{
+                                "&:last-child td": {
+                                    borderBottom: '1px solid #00296b',
+                                },
+                            }}>
                                 <TableCell align="center" colSpan={1} sx={{
                                     borderRight: '1px solid rgba(224, 224, 224, 1)'
                                 }}>
