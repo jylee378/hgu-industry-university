@@ -10,7 +10,7 @@ const Home: NextPage = () => {
         <title>THE WIND BLOWS</title>
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <Image src={`/landing.jpg`} width="1500px" height="650px" layout="responsive" alt="landingImage" />
+      <Image src={`/landing_with_logo.jpeg`} width="1500px" height="650px" layout="responsive" alt="landingImage" />
     </>
   )
 }
