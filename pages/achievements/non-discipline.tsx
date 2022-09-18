@@ -1,10 +1,11 @@
 import type { NextPage } from 'next'
 import Image from 'next/image'
-import { Box, Grid, Typography } from '@mui/material'
+import { Box, Grid, Typography, useMediaQuery } from '@mui/material'
 import PageTitleBar from '../../components/common/PageTitleBar'
 import WindPowerOutlinedIcon from '@mui/icons-material/WindPowerOutlined';
 import { data } from '../../data/achievements/non_discipline'
 import React from 'react';
+import { useTheme } from '@mui/material/styles'
 
 const styles = {
     container: {
@@ -15,6 +16,10 @@ const styles = {
 }
 
 const NonDisciplinePage: NextPage = () => {
+
+    const theme = useTheme()
+    const isLargeScreen = useMediaQuery(theme.breakpoints.up("xl"))
+
     return (
         <Box style={{ padding: '50px 10% 50px 10%' }}>
             <PageTitleBar title={'1차년도 비교과활동'} icon={WindPowerOutlinedIcon} />
@@ -22,11 +27,11 @@ const NonDisciplinePage: NextPage = () => {
                 {
                     data.map((item, index) => (
                         <React.Fragment key={index}>
-                            <Grid container display="flex" justifyContent="center" alignItems="center" sx={{ marginBottom: '20px' }}>
+                            <Grid container spacing={3} display="flex" justifyContent="center" alignItems="center" sx={{ marginBottom: '20px' }}>
                                 {
                                     item.images.map((image, imageId) => (
-                                        <Grid key={imageId} item md={3}>
-                                            <Image width={250} height={200} src={image} />
+                                        <Grid key={imageId} item md={3} display="flex" justifyContent="center">
+                                            <Image width={isLargeScreen ? 330 : 250} height={isLargeScreen ? 250 : 180} src={image} />
                                         </Grid>
                                     ))
                                 }
