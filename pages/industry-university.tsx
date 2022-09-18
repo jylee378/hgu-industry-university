@@ -13,6 +13,7 @@ const IndustryUniversityPage: NextPage = () => {
 
     const theme = useTheme()
     const isMobile = useMediaQuery(theme.breakpoints.down("md"))
+    const isLargeScreen = useMediaQuery(theme.breakpoints.up("xl"))
 
     return (
         <Box style={{ padding: '50px 10% 50px 10%' }}>
@@ -20,14 +21,14 @@ const IndustryUniversityPage: NextPage = () => {
                 data.map((item, index) => (
                     <React.Fragment key={index}>
                         <PageTitleBar title={item.main_title} icon={HubIcon} />
-                        <Box sx={{ padding: '0px 100px', marginBottom: "30px" }}>
-                            <Grid container display="flex" justifyContent="flex-start" alignItems="flex-end" sx={{ marginLeft: isMobile ? '0px' : '490px' }}>
+                        <Box sx={{ marginBottom: "30px" }}>
+                            <Grid container display="flex" justifyContent="center" alignItems="flex-end" marginLeft={isMobile ? "0px" : "245px"}>
                                 {!isMobile && <Box sx={{ width: '150px', height: '30px', borderTop: "2px solid #dcdcdc", borderLeft: "2px solid #dcdcdc" }} />}
                                 <Box sx={{ width: '300px', border: '2px solid #dcdcdc', padding: '10px 10px' }}>
                                     <Typography>{item.top_of_logo}</Typography>
                                 </Box>
                             </Grid>
-                            <Grid container display="flex" justifyContent="flex-start" alignItems="center">
+                            <Grid container display="flex" justifyContent="center" alignItems="center" position="relative" left={isMobile ? "0px" : "-170px"}>
                                 <Box sx={{ width: '350px', border: '2px solid #dcdcdc', padding: '10px 10px' }}>
                                     <Typography>{item.left_of_logo}</Typography>
                                 </Box>
@@ -39,8 +40,8 @@ const IndustryUniversityPage: NextPage = () => {
                             {
                                 item.bottom_of_logo &&
                                 <>
-                                    {!isMobile && <Grid container display="flex" justifyContent="flex-start" sx={{ marginLeft: isMobile ? '0px' : '490px' }}><Box sx={{ width: "2px", height: '30px', borderLeft: "2px solid #dcdcdc" }}></Box></Grid>}
-                                    <Grid container display="flex" justifyContent="flex-start" sx={{ marginLeft: isMobile ? '0px' : '340px' }}>
+                                    {!isMobile && <Grid container display="flex" justifyContent="center" marginLeft={isMobile ? "0px" : "20px"}><Box sx={{ width: "2px", height: '30px', borderLeft: "2px solid #dcdcdc" }}></Box></Grid>}
+                                    <Grid container display="flex" justifyContent="center" marginLeft={isMobile ? "0px" : "20px"}>
                                         <Box sx={{ width: '300px', border: '2px solid #dcdcdc', padding: '10px 10px' }}>
                                             <Typography>{item.top_of_logo}</Typography>
                                         </Box>
@@ -83,7 +84,7 @@ const IndustryUniversityPage: NextPage = () => {
                                                     {
                                                         item.content_images.map((image, number) => (
                                                             <Grid item key={number}>
-                                                                <Image width={250} height={200} src={image} />
+                                                                <Image width={isLargeScreen ? 330: 250} height={isLargeScreen ? 250: 200} src={image} />
                                                             </Grid>
                                                         ))
                                                     }
