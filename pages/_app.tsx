@@ -24,7 +24,7 @@ const theme = createTheme({
   typography: {
     allVariants: {
       color: '#00296b',
-      minWidth: '60px',
+      minWidth: '70px',
       textAlign: 'center',
       fontWeight: '600'
     }
